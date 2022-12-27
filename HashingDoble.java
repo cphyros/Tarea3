@@ -46,7 +46,7 @@ public class HashingDoble {
             }
             return hashArray[hashVal].getId();
       }
-
+      //imprime la tabla hash
       public void displayTable() {
             System.out.println("Tabla: ");
             for (int i = 0; i < arraySize; i++) {
@@ -59,7 +59,7 @@ public class HashingDoble {
                   System.out.println("");
             }
       }
-
+      //Este metodo es el del primer punto pero esta mal implementado pero lo deje asi para las pruebas
       public void findTrayectoria(int num) {
             for (int i = 0; i < arraySize; i++) {
                   if (hashArray[i] != null) {
@@ -70,7 +70,7 @@ public class HashingDoble {
             }
 
       }
-
+      //Verifica si el tamaño del array es un numero primo
       private boolean isPrime(int num) {
             for (int i = 2; i * i <= num; i++) {
                   if (num % i == 0) {
@@ -79,7 +79,7 @@ public class HashingDoble {
             }
             return true;
       }
-
+      //Si el tamaño de la lista no es primo lo cambia al siguiente numero primo cercano
       private int getNextPrime(int minNumber) {
             for (int i = minNumber; true; i++) {
                   if (isPrime(i)) {
