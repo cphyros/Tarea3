@@ -22,7 +22,7 @@ public class testHashingDoble {
             System.out.println("--------FIND ELEMENTS--------");
             
             //table.findTrayectoria(1050);
-            table.Trayectoria(1050);
+            table.trayectoria(1020);
           
             
       }

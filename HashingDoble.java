@@ -71,15 +71,12 @@ public class HashingDoble {
 
       }
 
-      public void Trayectoria(int num) {
-            int plus = 0;
-            trayectoria(num, plus);
-      }
+      
 
-      private void trayectoria(int num, int plus) {
+      public void trayectoria(int num) {
             int hashVal = hashFunc1(num);
             int stepSize = hashFunc2(num);
-
+            int plus = 0;
             while (hashArray[hashVal] != null) {
                   if (hashArray[hashVal].getId() == num) {
                         System.out.println(hashArray[hashVal].toString());                        
