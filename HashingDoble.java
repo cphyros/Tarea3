@@ -70,6 +70,28 @@ public class HashingDoble {
             }
 
       }
+
+      public void Trayectoria(int num) {
+            int plus = 0;
+            trayectoria(num, plus);
+      }
+
+      private void trayectoria(int num, int plus) {
+            int hashVal = hashFunc1(num);
+            int stepSize = hashFunc2(num);
+
+            while (hashArray[hashVal] != null) {
+                  if (hashArray[hashVal].getId() == num) {
+                        System.out.println(hashArray[hashVal].toString());                        
+                  }
+                  plus++;
+                  stepSize = stepSize*plus;
+                  hashVal = hashVal + stepSize;
+                  hashVal = hashVal % arraySize;
+
+            }
+           // trayectoria(num, plus);
+      }
       //Verifica si el tamaño del array es un numero primo
       private boolean isPrime(int num) {
             for (int i = 2; i * i <= num; i++) {
