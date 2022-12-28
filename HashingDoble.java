@@ -59,24 +59,12 @@ public class HashingDoble {
                   System.out.println("");
             }
       }
-      //Este metodo es el del primer punto pero esta mal implementado pero lo deje asi para las pruebas
-      public void findTrayectoria(int num) {
-            for (int i = 0; i < arraySize; i++) {
-                  if (hashArray[i] != null) {
-                        if(hashArray[i].getId() == num) {
-                              System.out.println("[" + i + "] " + hashArray[i].toString());
-                        }
-                  }
-            }
-
-      }
-
-      
-
-      public void trayectoria(int num) {
+   
+      public void Trayectoria(int num) {
             int hashVal = hashFunc1(num);
             int stepSize = hashFunc2(num);
             int plus = 0;
+            System.out.println("Trayectoria del movil " + num + ": ");
             while (hashArray[hashVal] != null) {
                   if (hashArray[hashVal].getId() == num) {
                         System.out.println(hashArray[hashVal].toString());                        
@@ -87,7 +75,6 @@ public class HashingDoble {
                   hashVal = hashVal % arraySize;
 
             }
-           // trayectoria(num, plus);
       }
       //Verifica si el tamaño del array es un numero primo
       private boolean isPrime(int num) {
