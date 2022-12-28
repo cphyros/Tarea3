@@ -46,7 +46,8 @@ public class HashingDoble {
             }
             return hashArray[hashVal].getId();
       }
-      //imprime la tabla hash
+
+      // imprime la tabla hash
       public void displayTable() {
             System.out.println("Tabla: ");
             for (int i = 0; i < arraySize; i++) {
@@ -59,7 +60,7 @@ public class HashingDoble {
                   System.out.println("");
             }
       }
-   
+      // Devuelve la trayectoria del numero ingresado en tiempo O(l)
       public void Trayectoria(int num) {
             int hashVal = hashFunc1(num);
             int stepSize = hashFunc2(num);
@@ -67,16 +68,17 @@ public class HashingDoble {
             System.out.println("Trayectoria del movil " + num + ": ");
             while (hashArray[hashVal] != null) {
                   if (hashArray[hashVal].getId() == num) {
-                        System.out.println(hashArray[hashVal].toString());                        
+                        System.out.println(hashArray[hashVal].toString());
                   }
                   plus++;
-                  stepSize = stepSize*plus;
+                  stepSize = stepSize * plus;
                   hashVal = hashVal + stepSize;
                   hashVal = hashVal % arraySize;
 
             }
       }
-      //Verifica si el tamaño del array es un numero primo
+
+      // Verifica si el tamaño del array es un numero primo
       private boolean isPrime(int num) {
             for (int i = 2; i * i <= num; i++) {
                   if (num % i == 0) {
@@ -85,7 +87,9 @@ public class HashingDoble {
             }
             return true;
       }
-      //Si el tamaño de la lista no es primo lo cambia al siguiente numero primo cercano
+
+      // Si el tamaño de la lista no es primo lo cambia al siguiente numero primo
+      // cercano
       private int getNextPrime(int minNumber) {
             for (int i = minNumber; true; i++) {
                   if (isPrime(i)) {
@@ -118,5 +122,5 @@ public class HashingDoble {
 
             return 3 - hashVal % 3;
       }
-      
+
 }

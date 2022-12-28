@@ -16,11 +16,9 @@ public class testHashingDoble {
             table.insert(m2);
             table.insert(m2_1);
             table.insert(m2_2);
-            
-
+      
             table.displayTable();
             System.out.println("--------FIND ELEMENTS--------");
-            
             table.Trayectoria(1020);
           
             
