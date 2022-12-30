@@ -18,27 +18,27 @@ public class HashingDoble {
             }
       }
 
-      public void insert(movil num) {
-            int hashVal = hashFunc1(num.getId());
-            int stepSize = hashFunc2(num.getId());
+      public void insert(movil M) {
+            int hashVal = hashFunc1(M.getId());
+            int stepSize = hashFunc2(M.getId());
 
             while (hashArray[hashVal] != null) {
                   hashVal = hashVal + stepSize;
                   hashVal = hashVal % arraySize;
             }
 
-            hashArray[hashVal] = num;
+            hashArray[hashVal] = M;
 
-            System.out.println("Elemento insertado: " + num.getId());
+            System.out.println("Elemento insertado: " + M.getId());
             size++;
       }
 
-      public int find(int num) {
-            int hashVal = hashFunc1(num);
-            int stepSize = hashFunc2(num);
+      public int find(int M) {
+            int hashVal = hashFunc1(M);
+            int stepSize = hashFunc2(M);
 
             while (hashArray[hashVal] != null) {
-                  if (hashArray[hashVal].getId() == num) {
+                  if (hashArray[hashVal].getId() == M) {
                         return hashArray[hashVal].getId();
                   }
                   hashVal = hashVal + stepSize;
@@ -63,13 +63,13 @@ public class HashingDoble {
       }
 
       // Imprime la trayectoria del movil ingresado en tiempo O(l)
-      public void Trayectoria(int num) {
-            int hashVal = hashFunc1(num);
-            int stepSize = hashFunc2(num);
+      public void Trayectoria(int M) {
+            int hashVal = hashFunc1(M);
+            int stepSize = hashFunc2(M);
             int plus = 0;
-            System.out.println("Trayectoria del movil " + num + ": ");
+            System.out.println("Trayectoria del movil " + M + ": ");
             while (hashArray[hashVal] != null) {
-                  if (hashArray[hashVal] != null && hashArray[hashVal].getId() == num) {
+                  if (hashArray[hashVal] != null && hashArray[hashVal].getId() == M) {
                         System.out.println(hashArray[hashVal].toString());
                   }
                   plus++;
@@ -80,19 +80,19 @@ public class HashingDoble {
             }
       }
 
-      // metodo que navega por la trayectoria del movil ingresado guardando sus
+      // Metodo que navega por la trayectoria del movil ingresado guardando sus
       // posiciones en tiempo O(l)
       // Termina imprimiendo la suma de todas sus posiciones
-      public void Distancia(int num) {
-            int hashVal = hashFunc1(num);
-            int stepSize = hashFunc2(num);
+      public void Distancia(int M) {
+            int hashVal = hashFunc1(M);
+            int stepSize = hashFunc2(M);
             int plus = 0;
             coordenada P1 = null;
             coordenada P2 = null;
             double distancia = 0;
-            System.out.println("Distancia de la trayectoria del movil " + num + ": ");
+            System.out.println("Distancia de la trayectoria del movil " + M + ": ");
             while (hashArray[hashVal] != null) {
-                  if (hashArray[hashVal].getId() == num) {
+                  if (hashArray[hashVal].getId() == M) {
                         int x = hashArray[hashVal].getX();
                         int y = hashArray[hashVal].getY();
                         P1 = new coordenada(x, y);
@@ -102,7 +102,7 @@ public class HashingDoble {
                   hashVal = hashVal + stepSize;
                   hashVal = hashVal % arraySize;
 
-                  if (hashArray[hashVal] != null && hashArray[hashVal].getId() == num) {
+                  if (hashArray[hashVal] != null && hashArray[hashVal].getId() == M) {
                         int x = hashArray[hashVal].getX();
                         int y = hashArray[hashVal].getY();
                         P2 = new coordenada(x, y);
@@ -114,6 +114,7 @@ public class HashingDoble {
             System.out.println(distancia);
 
       }
+
       ///// METODOS PRIVADOS /////
 
       // Metodo privado para calcular la distancia entre dos puntos
@@ -139,8 +140,8 @@ public class HashingDoble {
 
       // Si el tamaño de la lista no es primo lo cambia al siguiente numero primo
       // cercano
-      private int getNextPrime(int minNumber) {
-            for (int i = minNumber; true; i++) {
+      private int getNextPrime(int minNum) {
+            for (int i = minNum; true; i++) {
                   if (esPrimo(i)) {
                         return i;
                   }
@@ -167,7 +168,7 @@ public class HashingDoble {
                   hashVal += arraySize;
             }
 
-            return 3 - hashVal % 3; // Se usa un numero menor que el numero del tamaño del array
+            return 3 - hashVal % 3; // Se usa un numero primo menor que el numero del tamaño del array
       }
 
 }
