@@ -1,16 +1,17 @@
-public class autito {
-      private int id, t1, t2, x, y;
+public class movil {
 
-      public autito() {
+      private int id, t1, t2;
+      private coordenada XY;
+
+      public movil() {
 
       }
 
-      public autito(int id, int t1, int t2, int x, int y) {
+      public movil(int id, int t1, int t2, int x, int y) {
             this.id = id;
             this.t1 = t1;
             this.t2 = t2;
-            this.x = x;
-            this.y = y;
+            XY = new coordenada(x, y);
       }
 
       public int getId() {
@@ -26,14 +27,14 @@ public class autito {
       }
 
       public int getX() {
-            return x;
+            return XY.getX();
       }
 
       public int getY() {
-            return y;
+            return XY.getY();
       }
 
       public String toString() {
-            return "[" + t1 + "," + t2 + "]" + "," + "(" + x + "," + y + ")";
+            return "[" + t1 + "," + t2 + "]" + "," + "(" + getX() + "," + getY() + ")";
       }
 }
